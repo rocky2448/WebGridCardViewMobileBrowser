@@ -34,10 +34,14 @@ class BrowserActivity : AppCompatActivity() {
         toolbarMain.subtitle = "by Rocky"
         toolbarMain.setLogo(R.drawable.ic_mobile_browser_48dp)
 
+        val url = intent.getStringExtra("url")
         webViewWV.webViewClient = WebViewClient()
-        val data = intent.data
-        webViewWV.loadUrl(data.toString())
+        webViewWV.loadUrl(url!!)
 
+    }
+    override fun onBackPressed() {
+        finish()
+        super.onBackPressed()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

@@ -56,7 +56,10 @@ class MainActivity : AppCompatActivity() {
                 "Выбран сайт: ${list[position].adres}",
                 Toast.LENGTH_SHORT
             ).show()
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(list[position].adres)))
+            val url = list[position].adres
+            val intent = Intent(this, BrowserActivity::class.java)
+            intent.putExtra("url", url)
+            startActivity(intent)
 
         }
 
